@@ -30,12 +30,9 @@ steps:
       - "run"
       - "deploy"
       - "${_SERVICE_NAME}"
-      - "-—image"
-      - "${_GCR_REGION}.gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
-      - "—-region"
-      - "${_LOCATION}"
-      - "—-platform"
-      - "managed"
+      - "--image=${_GCR_REGION}.gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
+      - "—-region=${_LOCATION}"
+      - "—-platform=managed"
 
 images:
   - "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
