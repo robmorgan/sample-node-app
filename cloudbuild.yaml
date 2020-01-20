@@ -31,7 +31,7 @@ steps:
       - "deploy"
       - "${_SERVICE_NAME}"
       - "—image"
-      - "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
+      "${_GCR_REGION}.gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA",
       - "—region"
       - "${_LOCATION}"
       - "—platform"
