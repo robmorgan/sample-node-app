@@ -1,0 +1,47 @@
+steps:
+  # install the app dependencies
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+
+  # execute the tests
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run", "test"]
+
+  # build the container image using the docker builder
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "--build-arg",
+        "NODE_ENV=production",
+        "-t",
+        "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA",
+        ".",
+      ]
+
+  # push the container image to Container Registry (GCR)
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ["push", "${_GCR_REGION}.gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"]
+
+  # Deploy the container image to Cloud Run
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - "run"
+      - "deploy"
+      - "${_SERVICE_NAME}"
+      - "—image"
+      - "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
+      - "—region"
+      - "${_REGION}"
+      - "—platform"
+      - "managed"
+
+images:
+  - "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
+
+substitutions:
+  _GCR_REGION: eu # must be substituted
+  _GKE_CLUSTER_LOCATION: europe-west3 # must be substituted
+  _GKE_CLUSTER_NAME: private-cluster # must be substituted
+  _SERVICE_NAME: service-name # must be substituted
