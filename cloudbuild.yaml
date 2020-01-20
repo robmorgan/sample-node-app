@@ -27,15 +27,15 @@ steps:
   # Deploy the container image to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
-      - "run"
-      - "deploy"
-      - "${_SERVICE_NAME}"
-      - "--image=${_GCR_REGION}.gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
-      - "—-region=${_LOCATION}"
-      - "—-platform=managed"
+      - run
+      - deploy
+      - ${_SERVICE_NAME}
+      - --image=${_GCR_REGION}.gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA
+      - —-region=${_LOCATION}
+      - —-platform=managed
 
 images:
-  - "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
+  - "${_GCR_REGION}.gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
 
 substitutions:
   _LOCATION: europe-west3 # must be substituted
