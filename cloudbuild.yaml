@@ -33,7 +33,7 @@ steps:
       - "—image"
       - "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
       - "—region"
-      - "${_REGION}"
+      - "${_LOCATION}"
       - "—platform"
       - "managed"
 
@@ -41,7 +41,6 @@ images:
   - "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA"
 
 substitutions:
+  _LOCATION: europe-west3 # must be substituted
   _GCR_REGION: eu # must be substituted
-  _GKE_CLUSTER_LOCATION: europe-west3 # must be substituted
-  _GKE_CLUSTER_NAME: private-cluster # must be substituted
   _SERVICE_NAME: service-name # must be substituted
