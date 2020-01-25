@@ -1,10 +1,10 @@
-# Sample Docker App
+# Sample Node App
 
-This folder contains a Docker app that is meant to be used for demonstration
+This folder contains a Dockerized Node.js app that is meant to be used for demonstration
 purposes only. You should follow the example in this code in your own apps and
 then remove this sample app once things are working.
 
-This Docker container contains a simple _"Hello World!"_ [Node.js][node_js] app.
+The app responds with a simple _"Hello World!"_.
 
 ## Running the app in local development
 
@@ -38,13 +38,13 @@ gcloud auth configure-docker
 2. Build and tag your image.
 
 ```
-docker build -t [GCP-CONTAINER-REGISTRY-HOSTNAME]/[PROJECT-ID]/sample-app-docker .
+docker build -t [GCP-CONTAINER-REGISTRY-HOSTNAME]/[PROJECT-ID]/sample-node-app .
 ```
 
 3. Push the Docker image
 
 ```
-docker push [GCP-CONTAINER-REGISTRY-HOSTNAME]/[PROJECT-ID]/sample-app-docker
+docker push [GCP-CONTAINER-REGISTRY-HOSTNAME]/[PROJECT-ID]/sample-node-app
 ```
 
 The Container Registry hostname will vary according to your region. For more
