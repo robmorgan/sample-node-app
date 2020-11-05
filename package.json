@@ -1,6 +1,6 @@
 {
   "name": "sample_node_app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -12,10 +12,10 @@
     "test": "mocha --exit"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "mocha": "^7.1.1",
-    "supertest": "^4.0.2"
+    "mocha": "^8.2.1",
+    "supertest": "^6.0.1"
   }
 }
