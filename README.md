@@ -14,6 +14,14 @@ The provided Docker Compose file allows you to run the app locally in developmen
 $ docker-compose up
 ```
 
+Alternatively, you can start the server directly without Docker by running `npm start`:
+
+```
+$ npm start
+
+Running on http://0.0.0.0:80
+```
+
 Once the stack has launched, you can test the application by navigating to:
 
 - http://localhost:8080/ to access the "Hello World!" message.
