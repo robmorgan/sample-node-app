@@ -12,7 +12,7 @@
     "test": "mocha --exit"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.20.0"
   },
   "devDependencies": {
     "mocha": "^10.2.0",
