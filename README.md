@@ -19,7 +19,7 @@ Alternatively, you can start the server directly without Docker by running `npm 
 ```
 $ npm start
 
-Running on http://0.0.0.0:80
+Running on http://0.0.0.0:8080
 ```
 
 Once the stack has launched, you can test the application by navigating to:
